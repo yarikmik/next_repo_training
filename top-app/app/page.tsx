@@ -8,9 +8,9 @@ export default function Home(): JSX.Element {
     <main className={styles.main}>
       {/* Главная страница */}
       <Logo/>
-      <Htag tag='h1'>Текст</Htag>
-      <Button appearance='primary'>primary</Button>
-      <Button appearance='ghost'>ghost</Button>
+      <Htag tag='h1'>Текст</Htag> 
+      <Button appearance='primary' arrow='right'>primary</Button>
+      <Button appearance='ghost' arrow='right'>ghost</Button>
     </main>
   );
 }
