@@ -1,7 +1,7 @@
 'use client';
 
 import styles from "./page.module.css";
-import { Button, Htag, P, Tag } from '@/components';
+import { Button, Htag, P, Rating, Tag } from '@/components';
 import Logo from '../public/vercel.svg';
 import { useEffect, useState } from 'react';
 
@@ -29,6 +29,7 @@ export default function Home(): JSX.Element {
       <Tag size='m' color='red'>Red</Tag>
       <Tag size='m' color='green'>Green</Tag>
       <Tag size='s' color='grey' href='google.com'>Grey</Tag>
+      <Rating rating={3}/>
     </main>
   );
 }
