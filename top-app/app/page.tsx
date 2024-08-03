@@ -1,15 +1,26 @@
-import Image from "next/image";
+'use client';
+
 import styles from "./page.module.css";
 import { Button, Htag, P, Tag } from '@/components';
 import Logo from '../public/vercel.svg';
+import { useEffect, useState } from 'react';
 
 export default function Home(): JSX.Element {
+  const [counter, setCounter] = useState<number>(0);
+
+  useEffect(() => {
+    console.log('counter ' + counter);
+    return function cleanup () {
+      console.log('Unmount');
+    };
+  }, []);
+
   return (
     <main className={styles.main}>
-      {/* Главная страница */}
+      {counter}
       <Logo/>
       <Htag tag='h1'>Текст</Htag> 
-      <Button appearance='primary' arrow='right'>primary</Button>
+      <Button appearance='primary' arrow='right' onClick={() => setCounter(x=>x+1)}>primary</Button>
       <Button appearance='ghost' arrow='right'>ghost</Button>
       <P>Какой то параграф</P>
       <P size='s'>Какой то параграф</P>
