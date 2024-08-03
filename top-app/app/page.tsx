@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Button, Htag, P } from '@/components';
+import { Button, Htag, P, Tag } from '@/components';
 import Logo from '../public/vercel.svg';
 
 export default function Home(): JSX.Element {
@@ -14,6 +14,10 @@ export default function Home(): JSX.Element {
       <P>Какой то параграф</P>
       <P size='s'>Какой то параграф</P>
       <P size='l'>Какой то параграф</P>
+      <Tag size='s'>Ghost</Tag>
+      <Tag size='m' color='red'>Red</Tag>
+      <Tag size='m' color='green'>Green</Tag>
+      <Tag size='s' color='grey' href='google.com'>Grey</Tag>
     </main>
   );
 }
