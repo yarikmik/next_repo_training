@@ -1,19 +1,16 @@
-'use client';
+// 'use client';
 
 import styles from "./page.module.css";
-import { Button, Htag, P, Rating, Tag } from '@/components';
-import Logo from '../public/vercel.svg';
-import { useEffect, useState } from 'react';
+import { Menu } from './components';
 
-export default function Home(): JSX.Element {
-  const [rating, setRating] = useState<number>(4);
-
-
+export default async function Home(): Promise<JSX.Element> {
+  // const [rating, setRating] = useState<number>(4);
   return (
     <main className={styles.main}>
       Главная страница
+      <Menu />
       {/* <Logo/> */}
-      <Htag tag='h1'>Текст</Htag> 
+      {/* <Htag tag='h1'>Текст</Htag> 
       <Button appearance='primary' arrow='right'>primary</Button>
       <Button appearance='ghost' arrow='down'>ghost</Button>
       <P>Какой то параграф</P>
@@ -23,7 +20,7 @@ export default function Home(): JSX.Element {
       <Tag size='m' color='red'>Red</Tag>
       <Tag size='m' color='green'>Green</Tag>
       <Tag size='s' color='grey' href='google.com'>Grey</Tag>
-      <Rating rating={rating} isEditable setRating={setRating}/>
+      <Rating rating={rating} isEditable setRating={setRating}/> */}
     </main>
   );
 }
