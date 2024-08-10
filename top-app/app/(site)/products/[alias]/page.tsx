@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 
-export default async function PageProducts({ params }: { params: {alias: string } } ): JSX.Element {
+export default async function PageProducts({ params }: { params: {alias: string } } ): Promise<JSX.Element> {
   const page = await getPage(params.alias);
   if (!page){
     notFound();
