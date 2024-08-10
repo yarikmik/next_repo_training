@@ -1,4 +1,4 @@
-import { getMenu } from '../../api/menu';
+import { getMenu } from '../../../api/menu';
 // import { getMenu } from '../api/menu';
 
 export async function Menu(): Promise<JSX.Element> {

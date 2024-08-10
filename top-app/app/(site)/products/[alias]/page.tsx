@@ -1,7 +1,7 @@
-import { getPage } from '@/app/api/get-page';
+import { getPage } from '@/api/page';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getMenu } from '@/app/api/menu';
+import { getMenu } from '@/api/menu';
 
 export const metadata: Metadata = {
   title: "Страница",
