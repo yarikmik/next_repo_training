@@ -1,5 +1,5 @@
 import { SidebarProps } from './Sidebar.props';
-import { Menu } from '../menu';
+import { Menu } from '../Menu/Menu';
 // import styles from './Sidebar.module.css';
 // import cn from 'classnames';
 
