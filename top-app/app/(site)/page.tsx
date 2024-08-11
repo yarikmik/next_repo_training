@@ -1,14 +1,12 @@
 // 'use client';
 
 import styles from "./page.module.css";
-import { Menu } from './components';
 
 export default async function Home(): Promise<JSX.Element> {
   // const [rating, setRating] = useState<number>(4);
   return (
     <main className={styles.main}>
       Главная страница
-      <Menu />
       {/* <Logo/> */}
       {/* <Htag tag='h1'>Текст</Htag> 
       <Button appearance='primary' arrow='right'>primary</Button>
