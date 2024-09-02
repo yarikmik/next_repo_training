@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  const menu = await getMenu(TopLevelCategory.Products);
+  const menu = await getMenu(TopLevelCategory.Courses);
   return menu.flatMap(item => item.pages.map(page=>({ alias: page.alias })));
 }
 
-export default async function PageProducts({ params }: { params: {alias: string } } ): Promise<JSX.Element> {
+export default async function PageCourses({ params }: { params: {alias: string } } ): Promise<JSX.Element> {
   const page = await getPage(params.alias);
   if (!page){
     notFound();

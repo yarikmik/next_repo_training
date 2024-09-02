@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getMenu } from '@/api/menu';
 import { FirstLevelMenuItem, PageItem } from '@/app/interfaces/menu.interface';
 import CoursesIcon from './icons/courses.svg';
@@ -16,22 +17,23 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 ];
 
 export async function Menu(): Promise<JSX.Element> {
-  const menu = await getMenu(0);
+  const menu = await getMenu(TopLevelCategory.Courses);
 
   const buildFirstLevel = () => {
     return (
       <>
         {firstLevelMenu.map(m => (
           <div key={m.route}>
-            <a href={`/${m.route}`}>
-              <div className={cn(styles.firstLevel, {
-                // [styles.firstLevelActive]: menu.isActive
-                [styles.firstLevelActive]: m.id == TopLevelCategory.Courses
-              })}>
-                {m.icon}
-                <span>{m.name}</span>
-              </div>
-            </a>
+            <Link href={`/${m.route}`}>
+                  <div className={cn(styles.firstLevel, {
+                  // [styles.firstLevelActive]: menu.isActive
+                  [styles.firstLevelActive]: m.id == TopLevelCategory.Courses
+                })}>
+                  {m.icon}
+                  <span>{m.name}</span>
+                </div>
+            </Link>
+
             {m.id == TopLevelCategory.Courses && buildSecondLevel(m)}
           </div>
         ))}
@@ -60,12 +62,13 @@ export async function Menu(): Promise<JSX.Element> {
     const buildThirdLevel = (pages: PageItem[], route: string) => {
     return (
       pages.map(p => (
-        <a key={p._id} href={`/${route}/${p.alias}`}
-          className={cn(styles.thirdLevel, {
-            [styles.thirdLevelActive]: false
-          })}>
-            {p.category}
-        </a>
+        <Link key={p._id} href={`/${route}/${p.alias}`}
+            className={cn(styles.thirdLevel, {
+              [styles.thirdLevelActive]: false
+            })}>
+              {p.category}
+        </Link>
+
 
       ))
     );
