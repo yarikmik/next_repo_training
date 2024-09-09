@@ -2,30 +2,20 @@
 
 import Link from 'next/link';
 import { FirstLevelMenuItem, PageItem } from '@/app/interfaces/menu.interface';
-import CoursesIcon from './icons/courses.svg';
-import ServicesIcon from './icons/services.svg';
-import BooksIcon from './icons/books.svg';
-import ProductsIcon from './icons/products.svg';
 import { TopLevelCategory } from '@/app/interfaces/page.interface';
 import styles from "./Menu.module.css";
 import cn from 'classnames';
 import { usePathname } from 'next/navigation';
 import { MenuLevelsProps } from './Menu-Levels.props';
-import { tr } from 'date-fns/locale';
 import { useState } from 'react';
+import { firstLevelMenu } from '@/helpers/helpers';
 
-const firstLevelMenu: FirstLevelMenuItem[] = [
-  { route: 'courses', name: 'Курсы', icon: <CoursesIcon/>, id: TopLevelCategory.Courses},
-  { route: 'servics', name: 'Сервисы', icon: <ServicesIcon/>, id: TopLevelCategory.Services},
-  { route: 'books', name: 'Книги', icon: <BooksIcon/>, id: TopLevelCategory.Books},
-  { route: 'products', name: 'Продуткы', icon: <ProductsIcon/>, id: TopLevelCategory.Products}
-];
 
 export function MenuLevels({menuItems}: MenuLevelsProps): JSX.Element {
   const pathname = usePathname();
   const [menu, setMenu] = useState(menuItems);
 
-  console.log('pathname-', pathname.split('/')[2]);
+  // console.log('pathname-', pathname.split('/')[2]);
 
   const openSecondLevel = (secondCategory: string) => {
     const new_menu = menu.map(m => {
@@ -45,14 +35,14 @@ export function MenuLevels({menuItems}: MenuLevelsProps): JSX.Element {
             <Link href={`/${m.route}`}>
                   <div className={cn(styles.firstLevel, {
                   // [styles.firstLevelActive]: menu.isActive
-                  [styles.firstLevelActive]: m.id == TopLevelCategory.Courses
+                  [styles.firstLevelActive]: m.id == TopLevelCategory.Books
                 })}>
                   {m.icon}
                   <span>{m.name}</span>
                 </div>
             </Link>
 
-            {m.id == TopLevelCategory.Courses && buildSecondLevel(m)}
+            {m.id == TopLevelCategory.Books && buildSecondLevel(m)}
           </div>
         ))}
       </>
