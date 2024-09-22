@@ -35,14 +35,14 @@ export function MenuLevels({menuItems}: MenuLevelsProps): JSX.Element {
             <Link href={`/${m.route}`}>
                   <div className={cn(styles.firstLevel, {
                   // [styles.firstLevelActive]: menu.isActive
-                  [styles.firstLevelActive]: m.id == TopLevelCategory.Books
+                  [styles.firstLevelActive]: m.id == TopLevelCategory.Courses
                 })}>
                   {m.icon}
                   <span>{m.name}</span>
                 </div>
             </Link>
 
-            {m.id == TopLevelCategory.Books && buildSecondLevel(m)}
+            {m.id == TopLevelCategory.Courses && buildSecondLevel(m)}
           </div>
         ))}
       </>
