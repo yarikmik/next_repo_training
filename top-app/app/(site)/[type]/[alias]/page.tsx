@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { getMenu } from '@/api/menu';
 import { TopLevelCategory } from '@/app/interfaces/page.interface';
 import { firstLevelMenu } from '@/helpers/helpers';
+import { TopPageComponent } from '@/app/(site)/components';
+import { getProducts } from '@/api/products';
 
 export const metadata: Metadata = {
   title: "Страница",
@@ -19,9 +21,18 @@ export default async function PageCourses({ params }: { params: {type: string, a
   if (!page){
     notFound();
   }
+
+  const products = await getProducts(page.category);
+
+  if (!products){
+    notFound();
+  }
+
   return (
-    <div>
-      {page.title}
-    </div>
+    <TopPageComponent
+      page={page}
+      products={products}
+      firstCategory={page.firstCategory}
+    />
   );
 }

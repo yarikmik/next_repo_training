@@ -4,7 +4,7 @@ export default function CoursLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div style={{ border: '1px solid #fff'}}>
+        <div>
           {children}
         </div>
   );
