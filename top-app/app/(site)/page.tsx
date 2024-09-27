@@ -1,5 +1,6 @@
 // 'use client';
 
+import { Input } from '@/components';
 import styles from "./page.module.css";
 
 export default async function Home(): Promise<JSX.Element> {
@@ -19,6 +20,7 @@ export default async function Home(): Promise<JSX.Element> {
       <Tag size='m' color='green'>Green</Tag>
       <Tag size='s' color='grey' href='google.com'>Grey</Tag>
       <Rating rating={rating} isEditable setRating={setRating}/> */}
+      <Input placeholder='test' />
     </main>
   );
 }
