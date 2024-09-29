@@ -9,9 +9,10 @@ import { priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 
 export const Product = ({ product, className}: ProductProps): JSX.Element => {
+	console.log(product.image);
 	return (
 		<Card className={cn(styles.product, className)}>
-			<div className={styles.logo}><img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} /></div>
+			<div className={styles.logo}><img src={product.image} alt={product.title} /></div>
 			<div className={styles.title}>{product.title}</div>
 			<div className={styles.price}>
 				{priceRu(product.price)}
